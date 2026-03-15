@@ -1,0 +1,21 @@
+site_id,suburb,archetype,why_included,expected_recommendation,expected_confidence,major_unknowns,status
+SC-REG-001,Buderim,clear_likely_proceed,"Large regular lot; apparent residential context; intended as clean benchmark",proceed,medium,"Verified minimum lot size; flood check; history check",example
+SC-REG-002,Maroochydore,proceed_with_caution,"Urban context with likely workable subdivision pathway but overlay/access questions",proceed_with_caution,medium,"Precinct detail; access practicality; biodiversity interface",example
+SC-REG-003,Caloundra West,hold_verify,"Likely candidate but threshold and overlay detail not yet verified",hold_verify,low,"Minimum lot size; flood check; prior application history",example
+SC-REG-004,Nambour,do_not_proceed,"Stress-test row for obvious blocker or non-viable pattern",do_not_proceed,medium,"Need verified blocker evidence before treating as true no-go",example
+SC-REG-005,Palmwoods,proceed_with_caution,"Tests steeper-land and access sensitivity in hinterland-fringe context",proceed_with_caution,low,"Steep land; landslide; effective yield assumptions",example
+SC-REG-006,Mooloolaba,clear_likely_proceed,"Placeholder test site for clean urban lot pattern",proceed,medium,"To be assigned",blank
+SC-REG-007,Kuluin,proceed_with_caution,"Placeholder test site for moderate constraint mix",proceed_with_caution,medium,"To be assigned",blank
+SC-REG-008,Wurtulla,hold_verify,"Placeholder test site for coastal overlay uncertainty",hold_verify,low,"To be assigned",blank
+SC-REG-009,Kawana Island,do_not_proceed,"Placeholder test site for obvious scope/blocker test",do_not_proceed,medium,"To be assigned",blank
+SC-REG-010,Bli Bli,clear_likely_proceed,"Placeholder test site for regular-lot pattern",proceed,medium,"To be assigned",blank
+SC-REG-011,Beerwah,proceed_with_caution,"Placeholder test site for semi-urban subdivision screen",proceed_with_caution,medium,"To be assigned",blank
+SC-REG-012,Landsborough,hold_verify,"Placeholder test site for precinct uncertainty",hold_verify,low,"To be assigned",blank
+SC-REG-013,Yandina,clear_likely_proceed,"Placeholder test site for growth-area benchmark",proceed,medium,"To be assigned",blank
+SC-REG-014,Mountain Creek,proceed_with_caution,"Placeholder test site for access/frontage constraint mix",proceed_with_caution,medium,"To be assigned",blank
+SC-REG-015,Currimundi,hold_verify,"Placeholder test site for flood sensitivity review",hold_verify,low,"To be assigned",blank
+SC-REG-016,Little Mountain,clear_likely_proceed,"Placeholder test site for larger suburban lot pattern",proceed,medium,"To be assigned",blank
+SC-REG-017,Woombye,proceed_with_caution,"Placeholder test site for hinterland township screen",proceed_with_caution,medium,"To be assigned",blank
+SC-REG-018,Coolum Beach,hold_verify,"Placeholder test site for coastal overlay uncertainty",hold_verify,low,"To be assigned",blank
+SC-REG-019,Eumundi,do_not_proceed,"Placeholder test site for non-viable or constrained pattern",do_not_proceed,medium,"To be assigned",blank
+SC-REG-020,Birtinya,proceed_with_caution,"Placeholder test site for urban infill complexity",proceed_with_caution,medium,"To be assigned",blank
