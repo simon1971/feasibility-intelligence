@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/site-assessment.schema.json",
+  "title": "Sunshine Coast Residential Subdivision Site Assessment",
+  "type": "object",
+  "required": [
+    "assessment_meta",
+    "site",
+    "screening",
+    "decision",
+    "sources"
+  ],
+  "properties": {
+    "assessment_meta": {
+      "type": "object",
+      "required": ["assessment_id", "phase", "analyst", "review_status"],
+      "properties": {
+        "assessment_id": { "type": "string" },
+        "phase": { "type": "string", "enum": ["phase1", "phase2", "phase3"] },
+        "analyst": { "type": "string" },
+        "review_status": { "type": "string", "enum": ["draft", "human_reviewed", "final"] },
+        "assessment_date": { "type": "string", "format": "date" },
+        "notes": { "type": "string" }
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": ["site_name", "address_text", "sunshine_coast_lga_check", "gross_site_area_sqm"],
+      "properties": {
+        "site_name": { "type": "string" },
+        "address_text": { "type": "string" },
+        "lot_plan": { "type": "string" },
+        "suburb": { "type": "string" },
+        "sunshine_coast_lga_check": { "type": "boolean" },
+        "gross_site_area_sqm": { "type": "number", "minimum": 0 },
+        "frontage_m": { "type": ["number", "null"], "minimum": 0 },
+        "access_notes": { "type": "string" }
+      }
+    },
+    "screening": {
+      "type": "object",
+      "required": [
+        "residential_subdivision_use_case",
+        "current_zone",
+        "local_plan_precinct",
+        "minimum_lot_size",
+        "effective_yield",
+        "constraints",
+        "prior_application_history"
+      ],
+      "properties": {
+        "residential_subdivision_use_case": {
+          "type": "object",
+          "properties": {
+            "status": { "$ref": "#/$defs/checkStatus" },
+            "notes": { "type": "string" }
+          },
+          "required": ["status"]
+        },
+        "current_zone": {
+          "type": "object",
+          "properties": {
+            "status": { "$ref": "#/$defs/checkStatus" },
+            "zone_name": { "type": ["string", "null"] },
+            "verified_reference_needed": { "type": "boolean" },
+            "notes": { "type": "string" }
+          },
+          "required": ["status"]
+        },
+        "local_plan_precinct": {
+          "type": "object",
+          "properties": {
+            "status": { "$ref": "#/$defs/checkStatus" },
+            "plan_name": { "type": ["string", "null"] },
+            "precinct_name": { "type": ["string", "null"] },
+            "verified_reference_needed": { "type": "boolean" },
+            "notes": { "type": "string" }
+          },
+          "required": ["status"]
+        },
+        "minimum_lot_size": {
+          "type": "object",
+          "properties": {
+            "status": { "$ref": "#/$defs/checkStatus" },
+            "minimum_lot_size_sqm": { "type": ["number", "null"] },
+            "threshold_is_placeholder": { "type": "boolean" },
+            "notes": { "type": "string" }
+          },
+          "required": ["status"]
+        },
+        "effective_yield": {
+          "type": "object",
+          "properties": {
+            "status": { "$ref": "#/$defs/checkStatus" },
+            "assumed_efficiency_ratio": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "effective_yield_area_sqm": { "type": ["number", "null"], "minimum": 0 },
+            "indicative_lot_count": { "type": ["integer", "null"], "minimum": 0 },
+            "notes": { "type": "string" }
+          },
+          "required": ["status"]
+        },
+        "constraints": {
+          "type": "object",
+          "required": ["frontage_access", "flood", "steep_land_landslide", "biodiversity_waterways"],
+          "properties": {
+            "frontage_access": {
+              "type": "object",
+              "properties": {
+                "status": { "$ref": "#/$defs/checkStatus" },
+                "notes": { "type": "string" }
+              },
+              "required": ["status"]
+            },
+            "flood": {
+              "type": "object",
+              "properties": {
+                "status": { "$ref": "#/$defs/checkStatus" },
+                "notes": { "type": "string" }
+              },
+              "required": ["status"]
+            },
+            "steep_land_landslide": {
+              "type": "object",
+              "properties": {
+                "status": { "$ref": "#/$defs/checkStatus" },
+                "notes": { "type": "string" }
+              },
+              "required": ["status"]
+            },
+            "biodiversity_waterways": {
+              "type": "object",
+              "properties": {
+                "status": { "$ref": "#/$defs/checkStatus" },
+                "notes": { "type": "string" }
+              },
+              "required": ["status"]
+            }
+          }
+        },
+        "prior_application_history": {
+          "type": "object",
+          "properties": {
+            "status": { "$ref": "#/$defs/checkStatus" },
+            "relevant_history_found": { "type": ["boolean", "null"] },
+            "notes": { "type": "string" }
+          },
+          "required": ["status"]
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "required": ["score", "recommendation", "confidence", "next_actions"],
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "recommendation": { "type": "string", "enum": ["proceed", "proceed_with_caution", "hold_verify", "do_not_proceed"] },
+        "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+        "critical_unknowns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "next_actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_type", "reference_text"],
+        "properties": {
+          "source_type": { "type": "string", "enum": ["planning_scheme", "overlay_map", "council_mapping", "pd_online", "title_plan", "agent_advice", "manual_note", "other"] },
+          "reference_text": { "type": "string" },
+          "url": { "type": ["string", "null"] },
+          "verified": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "checkStatus": {
+      "type": "string",
+      "enum": ["pass", "fail", "caution", "unknown"]
+    }
+  }
+}

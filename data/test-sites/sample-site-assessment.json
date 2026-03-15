@@ -1,0 +1,98 @@
+{
+  "assessment_meta": {
+    "assessment_id": "SC-TEST-001-A1",
+    "phase": "phase1",
+    "analyst": "Donna",
+    "review_status": "draft",
+    "assessment_date": "2026-03-15",
+    "notes": "Illustrative sample only. Not a real determination."
+  },
+  "site": {
+    "site_name": "Sample Sunshine Coast Site",
+    "address_text": "Placeholder address",
+    "lot_plan": "Placeholder lot/plan",
+    "suburb": "Placeholder suburb",
+    "sunshine_coast_lga_check": true,
+    "gross_site_area_sqm": 2400,
+    "frontage_m": 24,
+    "access_notes": "Single frontage assumed. Manual verification required."
+  },
+  "screening": {
+    "residential_subdivision_use_case": {
+      "status": "pass",
+      "notes": "Target use case matches MVP scope."
+    },
+    "current_zone": {
+      "status": "caution",
+      "zone_name": "Placeholder zone",
+      "verified_reference_needed": true,
+      "notes": "Indicative zoning only pending verified planning map reference."
+    },
+    "local_plan_precinct": {
+      "status": "unknown",
+      "plan_name": null,
+      "precinct_name": null,
+      "verified_reference_needed": true,
+      "notes": "Precinct identification still required."
+    },
+    "minimum_lot_size": {
+      "status": "caution",
+      "minimum_lot_size_sqm": 400,
+      "threshold_is_placeholder": true,
+      "notes": "Indicative placeholder only; must be verified."
+    },
+    "effective_yield": {
+      "status": "caution",
+      "assumed_efficiency_ratio": 0.8,
+      "effective_yield_area_sqm": 1920,
+      "indicative_lot_count": 4,
+      "notes": "Simple screening assumption only. Excludes servicing/detailed design constraints."
+    },
+    "constraints": {
+      "frontage_access": {
+        "status": "pass",
+        "notes": "Frontage appears workable at screen level; detailed access review still needed."
+      },
+      "flood": {
+        "status": "unknown",
+        "notes": "Flood mapping not yet verified."
+      },
+      "steep_land_landslide": {
+        "status": "pass",
+        "notes": "No obvious steep land issue from preliminary review; verify with mapping."
+      },
+      "biodiversity_waterways": {
+        "status": "caution",
+        "notes": "Potential ecological/waterway interface requires map verification."
+      }
+    },
+    "prior_application_history": {
+      "status": "unknown",
+      "relevant_history_found": null,
+      "notes": "PD Online history review pending."
+    }
+  },
+  "decision": {
+    "score": 58,
+    "recommendation": "hold_verify",
+    "confidence": "low",
+    "critical_unknowns": [
+      "Precinct not identified",
+      "Flood status not verified",
+      "Prior application history not checked"
+    ],
+    "next_actions": [
+      "Verify zone and precinct from authoritative planning source",
+      "Confirm minimum lot size from relevant planning control",
+      "Check flood and application history before progressing"
+    ]
+  },
+  "sources": [
+    {
+      "source_type": "manual_note",
+      "reference_text": "Illustrative sample only",
+      "url": null,
+      "verified": false
+    }
+  ]
+}

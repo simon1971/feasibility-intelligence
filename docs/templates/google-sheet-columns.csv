@@ -1,0 +1,35 @@
+table,column_name,data_type,notes
+Sites,site_id,text,Unique site identifier
+Sites,site_name,text,Working name
+Sites,address_text,text,Street address
+Sites,lot_plan,text,Lot on plan if known
+Sites,suburb,text,Suburb/locality
+Sites,lga_name,text,Should be Sunshine Coast
+Sites,gross_site_area_sqm,number,Manual input
+Sites,frontage_m,number,Manual input if known
+Sites,access_notes,text,Short text
+Assessments,assessment_id,text,Unique assessment identifier
+Assessments,site_id,text,Join to Sites
+Assessments,assessment_phase,text,phase1/phase2/phase3
+Assessments,analyst,text,Operator name
+Assessments,assessment_date,date,Date assessed
+Assessments,review_status,text,draft/human_reviewed/final
+Assessments,overall_score,number,0-100
+Assessments,recommendation,text,proceed/proceed_with_caution/hold_verify/do_not_proceed
+Assessments,confidence,text,low/medium/high
+Rule Checks,rule_code,text,R1-R12
+Rule Checks,rule_name,text,Rule label
+Rule Checks,status,text,pass/fail/caution/unknown
+Rule Checks,evidence_note,text,Short rationale
+Rule Checks,source_reference,text,Reference label
+Rule Checks,verified_flag,boolean,True/false
+Rule Checks,placeholder_flag,boolean,True/false
+Sources,source_id,text,Unique source identifier
+Sources,assessment_id,text,Join to assessment
+Sources,source_type,text,planning_scheme/overlay_map/pd_online/etc
+Sources,reference_text,text,Human readable citation
+Sources,url,text,Optional link
+Sources,verified_flag,boolean,True/false
+Report Draft,summary_text,text,Condensed narrative
+Report Draft,key_constraints,text,Semicolon separated if needed
+Report Draft,next_actions,text,Semicolon separated if needed
