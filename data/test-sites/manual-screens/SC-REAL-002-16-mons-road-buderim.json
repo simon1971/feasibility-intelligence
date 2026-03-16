@@ -1,0 +1,116 @@
+{
+  "assessment_meta": {
+    "assessment_id": "SC-REAL-002-A1",
+    "phase": "phase1",
+    "analyst": "Donna",
+    "review_status": "human_reviewed",
+    "assessment_date": "2026-03-16",
+    "notes": "Real manual screen using listing evidence plus limited public planning-context checks. Conservative placeholders retained where authoritative site-report fields were not fully verified in-session."
+  },
+  "site": {
+    "site_name": "16 Mons Road, Buderim",
+    "address_text": "16 Mons Road, Buderim, Qld 4556",
+    "lot_plan": "Unknown in this pass",
+    "suburb": "Buderim",
+    "sunshine_coast_lga_check": true,
+    "gross_site_area_sqm": 11500,
+    "frontage_m": null,
+    "access_notes": "Existing electric sliding gate and tar-sealed driveway noted in listing. Access exists at screen level, but exact frontage and subdivision access arrangement remain unverified."
+  },
+  "screening": {
+    "residential_subdivision_use_case": {
+      "status": "pass",
+      "notes": "Target use case matches MVP scope. Large parcel with stated future scope makes it relevant to residential subdivision screening."
+    },
+    "current_zone": {
+      "status": "unknown",
+      "zone_name": null,
+      "verified_reference_needed": true,
+      "notes": "Current zone not verified from authoritative council mapping/site report in this pass."
+    },
+    "local_plan_precinct": {
+      "status": "unknown",
+      "plan_name": null,
+      "precinct_name": null,
+      "verified_reference_needed": true,
+      "notes": "Local plan / precinct not verified in this pass. Buderim village proximity is positive context but not a planning control confirmation."
+    },
+    "minimum_lot_size": {
+      "status": "unknown",
+      "minimum_lot_size_sqm": null,
+      "threshold_is_placeholder": true,
+      "notes": "Minimum lot size or equivalent subdivision threshold not verified from authoritative controls."
+    },
+    "effective_yield": {
+      "status": "caution",
+      "assumed_efficiency_ratio": 0.8,
+      "effective_yield_area_sqm": 9200,
+      "indicative_lot_count": null,
+      "notes": "Very large site area is a strong positive signal. However, without zoning, topographic, environmental, access, and minimum lot size controls, no reliable indicative lot count should be asserted."
+    },
+    "constraints": {
+      "frontage_access": {
+        "status": "caution",
+        "notes": "Existing access is present, but exact frontage, secondary access options, and subdivision access practicality are not yet verified."
+      },
+      "flood": {
+        "status": "unknown",
+        "notes": "Flood status not verified from authoritative mapping in this pass."
+      },
+      "steep_land_landslide": {
+        "status": "unknown",
+        "notes": "Steep land / landslide overlays are especially material for this larger Buderim parcel and were not verified in this pass."
+      },
+      "biodiversity_waterways": {
+        "status": "unknown",
+        "notes": "Biodiversity / waterway constraints not verified from authoritative mapping in this pass."
+      }
+    },
+    "prior_application_history": {
+      "status": "caution",
+      "relevant_history_found": true,
+      "notes": "Listing states council approval already exists for a granny flat and 12x12 shed. This is relevant planning history but needs authoritative DA verification and does not itself prove subdivision pathway."
+    }
+  },
+  "decision": {
+    "score": 60,
+    "recommendation": "proceed_with_caution",
+    "confidence": "low",
+    "critical_unknowns": [
+      "Current zone not confirmed",
+      "Local plan / precinct not confirmed",
+      "Minimum lot size / subdivision threshold not verified",
+      "Flood status not checked",
+      "Steep land / landslide status not checked",
+      "Biodiversity / waterways status not checked",
+      "Exact prior application history and approvals not checked"
+    ],
+    "next_actions": [
+      "Obtain authoritative site report or council mapping output for zoning and local plan / precinct",
+      "Verify minimum lot size and any subdivision frontage requirements from applicable controls",
+      "Check flood, steep land / landslide, and biodiversity / waterways overlays",
+      "Verify the stated granny flat / shed approval history in Development.i / council records",
+      "Assess whether site shape, access, and topography materially constrain yield despite large area"
+    ]
+  },
+  "sources": [
+    {
+      "source_type": "manual_note",
+      "reference_text": "realestate.com.au listing: 16 Mons Road, Buderim, Qld 4556 (property-house-qld-buderim-150297212)",
+      "url": "https://www.realestate.com.au/property-house-qld-buderim-150297212",
+      "verified": true
+    },
+    {
+      "source_type": "manual_note",
+      "reference_text": "Listing text states 1.15ha site and council approval in place for granny flat and 12x12 shed",
+      "url": "https://www.realestate.com.au/property-house-qld-buderim-150297212",
+      "verified": false
+    },
+    {
+      "source_type": "planning_scheme",
+      "reference_text": "Sunshine Coast Council Development.i path identified but site-specific zoning/overlay data not fully verified in-session",
+      "url": "https://developmenti.sunshinecoast.qld.gov.au/",
+      "verified": false
+    }
+  ]
+}
