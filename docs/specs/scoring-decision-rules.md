@@ -29,9 +29,9 @@ Immediate **do_not_proceed** if:
 
 Immediate **hold_verify** if:
 1. Gross site area is missing.
-2. Zone cannot be identified.
+2. Zone cannot be identified even provisionally.
 3. Minimum lot size cannot be even provisionally identified.
-4. Flood / steep land / biodiversity-waterway status is completely unknown.
+4. The site is only weakly compelling and multiple critical planning fields remain unresolved.
 
 ## Suggested scoring method
 For weighted checks:
@@ -42,6 +42,41 @@ For weighted checks:
 
 Mandatory gate rules are not added to score if failed; they trigger stop logic.
 
+## Critical vs secondary unknowns
+### Critical unknowns
+These should strongly constrain recommendation:
+- current zone
+- local plan / precinct
+- minimum lot size / subdivision trigger
+- flood
+- steep land / landslide
+- biodiversity / waterways
+- prior application history when clearly relevant
+
+### Secondary unknowns
+These should influence confidence but not automatically suppress a promising site:
+- exact frontage measurement
+- exact access geometry
+- refined servicing assumptions
+- tentative indicative lot count
+
+## Raw site strength test
+Classify each site before final recommendation:
+
+### Strong raw site
+At least 2 of the following are true:
+- materially supportive site area
+- corner block or strong access signal
+- explicit development/redevelopment signal
+- likely supportive urban context
+- prior relevant approval/planning signal
+
+### Moderate raw site
+At least 1 of the above is true.
+
+### Weak raw site
+None of the above are meaningfully present.
+
 ## Recommendation mapping
 - **80–100** → Proceed
 - **60–79** → Proceed with caution
@@ -50,8 +85,22 @@ Mandatory gate rules are not added to score if failed; they trigger stop logic.
 
 Override logic:
 - Any verified fatal planning/physical constraint can override score to **do_not_proceed**.
-- More than 3 material unknowns should cap outcome at **hold_verify**.
+- Strong raw candidates with no obvious negative signal may still qualify for **Proceed with caution** even when some critical planning verification remains outstanding.
+- Moderate or weak raw candidates with multiple critical unknowns should remain capped at **hold_verify**.
 - Placeholder minimum lot size references should cap confidence at **medium**.
+
+## Recommendation discipline
+### Proceed
+Use only when major planning controls are mostly verified and no major overlay blocker is evident.
+
+### Proceed with caution
+Use when raw site strength is strong, no obvious screen-level fatal issue is present, and the site is clearly worth deeper work even though some critical planning verification remains outstanding.
+
+### Hold / verify
+Use when the site is plausible but not clearly compelling enough to escalate, or when critical unknowns remain too numerous for the current strength of the site.
+
+### Do not proceed
+Use when a verified fatal constraint exists, the site is outside MVP scope, or downside risk clearly dominates.
 
 ## Confidence rules
 - **High**: all 12 rules addressed, no material unknowns, sources mostly verified.
