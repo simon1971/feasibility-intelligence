@@ -1,0 +1,117 @@
+{
+  "assessment_meta": {
+    "assessment_id": "SC-REAL-004-A1",
+    "phase": "phase1",
+    "analyst": "Donna",
+    "review_status": "human_reviewed",
+    "assessment_date": "2026-03-16",
+    "notes": "Real manual screen using listing evidence plus limited public planning-context checks. Conservative placeholders retained where authoritative site-report fields were not fully verified in-session."
+  },
+  "site": {
+    "site_name": "11 School Road, Bli Bli",
+    "address_text": "11 School Road, Bli Bli, Qld 4560",
+    "lot_plan": "Unknown in this pass",
+    "suburb": "Bli Bli",
+    "sunshine_coast_lga_check": true,
+    "gross_site_area_sqm": 855,
+    "frontage_m": null,
+    "access_notes": "Standard residential access appears available. Listing does not make a specific subdivision or dual-access claim. Exact frontage and crossover conditions not verified."
+  },
+  "screening": {
+    "residential_subdivision_use_case": {
+      "status": "pass",
+      "notes": "Target use case matches MVP scope. Site is a real Sunshine Coast residential listing suitable for screen testing."
+    },
+    "current_zone": {
+      "status": "unknown",
+      "zone_name": null,
+      "verified_reference_needed": true,
+      "notes": "Current zone not verified from authoritative council mapping/site report in this pass."
+    },
+    "local_plan_precinct": {
+      "status": "unknown",
+      "plan_name": null,
+      "precinct_name": null,
+      "verified_reference_needed": true,
+      "notes": "Local plan / precinct not verified in this pass."
+    },
+    "minimum_lot_size": {
+      "status": "unknown",
+      "minimum_lot_size_sqm": null,
+      "threshold_is_placeholder": true,
+      "notes": "Minimum lot size or equivalent subdivision threshold not verified from authoritative planning controls."
+    },
+    "effective_yield": {
+      "status": "caution",
+      "assumed_efficiency_ratio": 0.8,
+      "effective_yield_area_sqm": 684,
+      "indicative_lot_count": null,
+      "notes": "855sqm is positive at screen level, but listing does not provide an explicit redevelopment signal. Without verified zone, frontage, servicing and minimum lot size controls, no reliable indicative lot count should be asserted."
+    },
+    "constraints": {
+      "frontage_access": {
+        "status": "unknown",
+        "notes": "No clear positive or negative frontage/subdivision-access evidence was verified in this pass."
+      },
+      "flood": {
+        "status": "unknown",
+        "notes": "Flood status not verified from authoritative mapping in this pass."
+      },
+      "steep_land_landslide": {
+        "status": "unknown",
+        "notes": "Steep land / landslide overlays not verified from authoritative mapping in this pass."
+      },
+      "biodiversity_waterways": {
+        "status": "unknown",
+        "notes": "Biodiversity / waterway constraints not verified from authoritative mapping in this pass."
+      }
+    },
+    "prior_application_history": {
+      "status": "unknown",
+      "relevant_history_found": null,
+      "notes": "Prior application history not checked in Development.i / PD Online equivalent during this pass."
+    }
+  },
+  "decision": {
+    "score": 48,
+    "recommendation": "hold_verify",
+    "confidence": "low",
+    "critical_unknowns": [
+      "Current zone not confirmed",
+      "Local plan / precinct not confirmed",
+      "Minimum lot size / subdivision threshold not verified",
+      "Frontage/access suitability not confirmed",
+      "Flood status not checked",
+      "Steep land / landslide status not checked",
+      "Biodiversity / waterways status not checked",
+      "Prior application history not checked"
+    ],
+    "next_actions": [
+      "Obtain authoritative site report or council mapping output for zoning and local plan / precinct",
+      "Verify minimum lot size and any frontage requirements from applicable planning controls",
+      "Check flood, steep land / landslide, and biodiversity / waterways overlays",
+      "Check prior development application history for the site",
+      "Confirm frontage and access dimensions from mapping or survey information"
+    ]
+  },
+  "sources": [
+    {
+      "source_type": "manual_note",
+      "reference_text": "realestate.com.au listing: 11 School Road, Bli Bli, Qld 4560 (property-house-qld-bli+bli-150439960)",
+      "url": "https://www.realestate.com.au/property-house-qld-bli+bli-150439960",
+      "verified": true
+    },
+    {
+      "source_type": "manual_note",
+      "reference_text": "Listing text states 855sqm block and renovation/owner-occupier positioning; no explicit subdivision claim verified",
+      "url": "https://www.realestate.com.au/property-house-qld-bli+bli-150439960",
+      "verified": false
+    },
+    {
+      "source_type": "planning_scheme",
+      "reference_text": "Sunshine Coast Council Development.i path identified but site-specific zoning/overlay data not fully verified in-session",
+      "url": "https://developmenti.sunshinecoast.qld.gov.au/",
+      "verified": false
+    }
+  ]
+}
