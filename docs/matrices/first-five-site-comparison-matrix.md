@@ -9,7 +9,7 @@ This matrix compares the first five real screened sites side by side so the Phas
 | Site | Suburb | Lot Size | Recommendation | Score | Confidence | Positive Signal | Main Blockers | Relative Rank |
 |---|---|---:|---|---:|---|---|---|---:|
 | 16 Mons Road | Buderim | 1.15ha | Proceed with caution | 60 | Low | Strongest raw landholding scale | Zoning, local plan, overlays, history not verified | 1 |
-| 39 Park Rd | Nambour | 598sqm | Hold / verify | 56 | Low | Strongest explicit development signal in listing | Zoning still unverified; overlays/history unresolved | 2 |
+| 39 Park Rd | Nambour | 598sqm | Proceed with caution | 62 | Low | Strongest explicit development signal in listing | Zoning still unverified; overlays/history unresolved | 2 |
 | 103 Carter Road | Nambour | 756sqm | Hold / verify | 54 | Low | Moderate site size plus dual-driveway access signal | No strong verified planning signal | 3 |
 | 11 School Road | Bli Bli | 855sqm | Hold / verify | 48 | Low | Larger lot than average suburban parcel | Weak development signal; core planning fields unresolved | 4 |
 | 27 Yoomba Crescent | Alexandra Headland | 607sqm | Hold / verify | 42 | Low | Useful control case with real listing data | Lifestyle listing, weak subdivision signal, unresolved planning/overlay risk | 5 |

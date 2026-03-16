@@ -5,7 +5,7 @@
     "analyst": "Donna",
     "review_status": "human_reviewed",
     "assessment_date": "2026-03-16",
-    "notes": "Real manual screen using listing evidence plus limited public planning-context checks. Conservative placeholders retained where authoritative site-report fields were not fully verified in-session."
+    "notes": "Real manual screen using listing evidence plus limited public planning-context checks. Conservative placeholders retained where authoritative site-report fields were not fully verified in-session. Re-evaluated on 2026-03-16 under refined recommendation logic."
   },
   "site": {
     "site_name": "39 Park Rd, Nambour",
@@ -73,8 +73,8 @@
     }
   },
   "decision": {
-    "score": 56,
-    "recommendation": "hold_verify",
+    "score": 62,
+    "recommendation": "proceed_with_caution",
     "confidence": "low",
     "critical_unknowns": [
       "Authoritative zoning confirmation outstanding",
