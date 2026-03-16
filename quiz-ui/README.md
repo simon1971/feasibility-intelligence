@@ -10,8 +10,8 @@ It is intentionally lightweight:
 - TailwindCSS
 - mobile-friendly flow
 - one question per screen
-- no backend required for MVP
-- responses logged to console and stored temporarily in local storage
+- no heavy backend
+- responses stored locally and persisted to a lightweight server-side endpoint on completion
 
 ## Run locally
 ```bash
@@ -31,11 +31,12 @@ npm run build
 - The quiz contains 17 validation questions.
 - Results are shown on the final screen.
 - Response JSON is printed to the browser console on completion.
-- Responses are also stored temporarily in local storage for MVP convenience.
+- Responses are stored temporarily in local storage.
+- Production deploy also posts completed responses to `/quiz/api/save-response.php` for later analysis.
 
 ## Future extension
-Later phases can send the same response object to:
+Later phases can route the same response object to:
+- Google Sheets
 - a lightweight API endpoint
 - a CRM
-- a form backend
 - a lead qualification workflow

@@ -1,0 +1,21 @@
+Options -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /quiz/
+
+  RewriteCond %{REQUEST_URI} ^/quiz/api/ [OR]
+  RewriteCond %{REQUEST_URI} ^/quiz/data/
+  RewriteRule ^ - [L]
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+  ErrorDocument 404 /quiz/index.html
+</IfModule>

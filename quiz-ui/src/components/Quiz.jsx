@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { questions } from '../data/questions';
 import ProgressBar from './ProgressBar';
 import Question from './Question';
 import Results from './Results';
 
 const STORAGE_KEY = 'feasibility-intelligence-quiz-responses';
+const API_ENDPOINT = '/quiz/api/save-response.php';
 
 function getInitialAnswers() {
   return questions.reduce((acc, question) => {
@@ -26,6 +27,7 @@ export default function Quiz() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState(getInitialAnswers);
   const [completed, setCompleted] = useState(false);
+  const [submitState, setSubmitState] = useState('idle');
 
   const currentQuestion = questions[step];
   const currentAnswer = currentQuestion ? answers[currentQuestion.id] : null;
@@ -46,8 +48,6 @@ export default function Quiz() {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(answers));
   }, [answers]);
 
-  const summary = useMemo(() => answers, [answers]);
-
   const handleChange = (value) => {
     setAnswers((prev) => ({
       ...prev,
@@ -55,10 +55,29 @@ export default function Quiz() {
     }));
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (!currentQuestion || !canContinue) return;
     if (step === questions.length - 1) {
-      console.log('Feasibility validation responses:', summary);
+      const payload = {
+        submittedAt: new Date().toISOString(),
+        answers,
+        userAgent: navigator.userAgent,
+        page: window.location.href,
+      };
+      console.log('Feasibility validation responses:', payload);
+      setSubmitState('submitting');
+      try {
+        const response = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        setSubmitState('saved');
+      } catch (error) {
+        console.error('Failed to persist quiz responses', error);
+        setSubmitState('error');
+      }
       setCompleted(true);
       return;
     }
@@ -75,6 +94,7 @@ export default function Quiz() {
     setStarted(false);
     setStep(0);
     setCompleted(false);
+    setSubmitState('idle');
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(reset));
   };
 
@@ -94,7 +114,7 @@ export default function Quiz() {
             <li>17 questions</li>
             <li>One question per screen</li>
             <li>Mobile-friendly interaction</li>
-            <li>Answers stored temporarily in local storage and printed to console at the end</li>
+            <li>Answers stored temporarily in local storage and saved on completion for later review</li>
           </ul>
         </div>
         <button
@@ -109,7 +129,7 @@ export default function Quiz() {
   }
 
   if (completed) {
-    return <Results questions={questions} answers={answers} onRestart={handleRestart} />;
+    return <Results questions={questions} answers={answers} submitState={submitState} onRestart={handleRestart} />;
   }
 
   return (
@@ -130,10 +150,10 @@ export default function Quiz() {
         <button
           type="button"
           onClick={handleNext}
-          disabled={!canContinue}
+          disabled={!canContinue || submitState === 'submitting'}
           className="min-h-12 rounded-xl bg-slate-950 px-4 py-3 text-lg font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
         >
-          {step === questions.length - 1 ? 'Finish' : 'Next'}
+          {step === questions.length - 1 ? (submitState === 'submitting' ? 'Saving…' : 'Finish') : 'Next'}
         </button>
       </div>
     </div>

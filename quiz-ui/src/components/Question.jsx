@@ -62,21 +62,47 @@ function MultiChoice({ question, value = [], onChange }) {
 }
 
 function RangeChoice({ question, value = question.min, onChange }) {
+  const step = question.step ?? 1;
+  const decrement = () => onChange(Math.max(question.min, Number(value) - step));
+  const increment = () => onChange(Math.min(question.max, Number(value) + step));
+
   return (
     <div className="grid gap-4">
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-center">
         <div className="text-4xl font-semibold text-slate-950">{value}</div>
         <div className="mt-1 text-sm text-slate-500">{question.unitLabel}</div>
       </div>
-      <input
-        type="range"
-        min={question.min}
-        max={question.max}
-        step={question.step}
-        value={value}
-        onChange={(event) => onChange(Number(event.target.value))}
-        className="w-full accent-slate-950"
-      />
+
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={decrement}
+          className="min-h-12 min-w-12 rounded-xl border border-slate-300 bg-white px-4 py-3 text-2xl font-semibold text-slate-900 transition hover:bg-slate-50"
+          aria-label="Decrease value"
+        >
+          −
+        </button>
+
+        <input
+          type="range"
+          min={question.min}
+          max={question.max}
+          step={question.step}
+          value={value}
+          onChange={(event) => onChange(Number(event.target.value))}
+          className="quiz-range w-full"
+        />
+
+        <button
+          type="button"
+          onClick={increment}
+          className="min-h-12 min-w-12 rounded-xl border border-slate-300 bg-white px-4 py-3 text-2xl font-semibold text-slate-900 transition hover:bg-slate-50"
+          aria-label="Increase value"
+        >
+          +
+        </button>
+      </div>
+
       <div className="flex justify-between text-sm text-slate-500">
         <span>{question.minLabel ?? question.min}</span>
         <span>{question.maxLabel ?? question.max}</span>

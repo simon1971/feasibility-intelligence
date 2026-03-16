@@ -30,6 +30,40 @@ textarea {
   animation: fadeIn 180ms ease-out;
 }
 
+.quiz-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #0f172a 0%, #334155 100%);
+}
+
+.quiz-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 3px solid #ffffff;
+  background: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.quiz-range::-moz-range-thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 3px solid #ffffff;
+  background: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.quiz-range::-moz-range-track {
+  height: 18px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #0f172a 0%, #334155 100%);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

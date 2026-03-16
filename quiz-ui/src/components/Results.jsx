@@ -8,7 +8,35 @@ function formatAnswer(answer) {
   return String(answer);
 }
 
-export default function Results({ questions, answers, onRestart }) {
+function SaveState({ submitState }) {
+  if (submitState === 'saved') {
+    return (
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800">
+        Response saved for later analysis.
+      </div>
+    );
+  }
+
+  if (submitState === 'error') {
+    return (
+      <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-medium text-amber-800">
+        The quiz completed, but the response could not be saved to the server. It remains in this device's local storage.
+      </div>
+    );
+  }
+
+  if (submitState === 'submitting') {
+    return (
+      <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium text-slate-700">
+        Saving response…
+      </div>
+    );
+  }
+
+  return null;
+}
+
+export default function Results({ questions, answers, submitState, onRestart }) {
   return (
     <div className="grid gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-soft">
       <div className="grid gap-2">
@@ -18,6 +46,8 @@ export default function Results({ questions, answers, onRestart }) {
           This founder-validation quiz is designed to test whether rapid feasibility screening reports solve a real commercial problem for Sunshine Coast developers.
         </p>
       </div>
+
+      <SaveState submitState={submitState} />
 
       <div className="grid gap-3">
         {questions.map((question) => (
