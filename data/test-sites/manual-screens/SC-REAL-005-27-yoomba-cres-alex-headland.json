@@ -1,0 +1,117 @@
+{
+  "assessment_meta": {
+    "assessment_id": "SC-REAL-005-A1",
+    "phase": "phase1",
+    "analyst": "Donna",
+    "review_status": "human_reviewed",
+    "assessment_date": "2026-03-16",
+    "notes": "Real manual screen using listing evidence plus limited public planning-context checks. Conservative placeholders retained where authoritative site-report fields were not fully verified in-session."
+  },
+  "site": {
+    "site_name": "27 Yoomba Crescent, Alexandra Headland",
+    "address_text": "27 Yoomba Crescent, Alexandra Headland, Qld 4572",
+    "lot_plan": "Unknown in this pass",
+    "suburb": "Alexandra Headland",
+    "sunshine_coast_lga_check": true,
+    "gross_site_area_sqm": 607,
+    "frontage_m": null,
+    "access_notes": "Standard residential access assumed from listing context. No explicit dual-access or corner-block advantage identified in this pass."
+  },
+  "screening": {
+    "residential_subdivision_use_case": {
+      "status": "pass",
+      "notes": "Target use case matches MVP scope. Real Sunshine Coast residential site suitable for screen testing."
+    },
+    "current_zone": {
+      "status": "unknown",
+      "zone_name": null,
+      "verified_reference_needed": true,
+      "notes": "Current zone not verified from authoritative council mapping/site report in this pass."
+    },
+    "local_plan_precinct": {
+      "status": "unknown",
+      "plan_name": null,
+      "precinct_name": null,
+      "verified_reference_needed": true,
+      "notes": "Local plan / precinct not verified in this pass. Coastal urban context may matter materially but was not confirmed."
+    },
+    "minimum_lot_size": {
+      "status": "unknown",
+      "minimum_lot_size_sqm": null,
+      "threshold_is_placeholder": true,
+      "notes": "Minimum lot size or equivalent subdivision threshold not verified from authoritative planning controls."
+    },
+    "effective_yield": {
+      "status": "unknown",
+      "assumed_efficiency_ratio": 0.8,
+      "effective_yield_area_sqm": 485.6,
+      "indicative_lot_count": null,
+      "notes": "Site area is modest at 607sqm and listing only suggests scope to enhance, not a clear redevelopment pathway. No reliable indicative lot count should be asserted."
+    },
+    "constraints": {
+      "frontage_access": {
+        "status": "unknown",
+        "notes": "No verified frontage or access advantage established in this pass."
+      },
+      "flood": {
+        "status": "unknown",
+        "notes": "Flood status not verified from authoritative mapping in this pass. Coastal context increases the importance of this check."
+      },
+      "steep_land_landslide": {
+        "status": "unknown",
+        "notes": "Steep land / landslide overlays not verified from authoritative mapping in this pass."
+      },
+      "biodiversity_waterways": {
+        "status": "unknown",
+        "notes": "Biodiversity / waterway constraints not verified from authoritative mapping in this pass. Coastal proximity may make this more material."
+      }
+    },
+    "prior_application_history": {
+      "status": "unknown",
+      "relevant_history_found": null,
+      "notes": "Prior application history not checked in Development.i / PD Online equivalent during this pass."
+    }
+  },
+  "decision": {
+    "score": 42,
+    "recommendation": "hold_verify",
+    "confidence": "low",
+    "critical_unknowns": [
+      "Current zone not confirmed",
+      "Local plan / precinct not confirmed",
+      "Minimum lot size / subdivision threshold not verified",
+      "Frontage/access suitability not confirmed",
+      "Flood status not checked",
+      "Steep land / landslide status not checked",
+      "Biodiversity / waterways status not checked",
+      "Prior application history not checked"
+    ],
+    "next_actions": [
+      "Obtain authoritative site report or council mapping output for zoning and local plan / precinct",
+      "Verify minimum lot size and any frontage requirements from applicable planning controls",
+      "Check flood, steep land / landslide, and biodiversity / waterways overlays",
+      "Check prior development application history for the site",
+      "Confirm whether site shape, frontage and coastal-context controls materially constrain subdivision potential"
+    ]
+  },
+  "sources": [
+    {
+      "source_type": "manual_note",
+      "reference_text": "realestate.com.au listing: 27 Yoomba Crescent, Alexandra Headland, Qld 4572 (property-house-qld-alexandra+headland-150349308)",
+      "url": "https://www.realestate.com.au/property-house-qld-alexandra+headland-150349308",
+      "verified": true
+    },
+    {
+      "source_type": "manual_note",
+      "reference_text": "Listing text states 607sqm block and scope to personalise or enhance (STCA); no explicit subdivision signal verified",
+      "url": "https://www.realestate.com.au/property-house-qld-alexandra+headland-150349308",
+      "verified": false
+    },
+    {
+      "source_type": "planning_scheme",
+      "reference_text": "Sunshine Coast Council Development.i path identified but site-specific zoning/overlay data not fully verified in-session",
+      "url": "https://developmenti.sunshinecoast.qld.gov.au/",
+      "verified": false
+    }
+  ]
+}
