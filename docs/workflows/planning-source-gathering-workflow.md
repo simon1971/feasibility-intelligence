@@ -40,6 +40,23 @@ If any of these remain unresolved, they must stay explicitly marked as `unknown`
 
 ---
 
+## Official verification stack
+For the Sunshine Coast residential subdivision MVP, the official source order is:
+1. **Development.i**
+2. **Planning scheme / local plan mapping**
+3. **Overlay mapping**
+4. **Application history**
+
+This order is now canonical for Phase 1 and Narrow B verification work.
+
+Do not rely on:
+- listing data for planning truth
+- generic Google search as a primary source
+- one-source verification
+- `no evidence found` being treated as `no constraint`
+
+---
+
 ## Step 1 — Prepare the site record
 Before opening planning sources, collect:
 - full address
@@ -64,7 +81,7 @@ Important:
 Use the council/planning source set in this order.
 
 ### Source A — Sunshine Coast Development.i / site report path
-Use this first for site-level planning context.
+Use this first for site-level planning context. This is the official **Source 1** in the stack.
 
 Goal:
 - confirm site identity
@@ -80,7 +97,7 @@ Capture:
 - any direct application links or history references
 
 ### Source B — Sunshine Coast planning scheme mapping / local plan maps
-Use this when Development.i/site report does not provide enough precision.
+Use this as official **Source 2** to confirm local plan / precinct and planning-control precision.
 
 Goal:
 - verify local plan area
@@ -93,7 +110,7 @@ Capture:
 - map layer reference if available
 
 ### Source C — Flood / overlay mapping
-Use this to check:
+Use this as official **Source 3** to check:
 - flood
 - steep land / landslide
 - biodiversity / waterways
@@ -102,7 +119,7 @@ Use this to check:
 Capture each overlay separately.
 
 ### Source D — Application history / PD-style record
-Use this to check:
+Use this as official **Source 4** to check:
 - prior approvals
 - refusals
 - lodged applications

@@ -12,6 +12,23 @@ This is the operational source map for Narrow B.
 
 ---
 
+## Canonical operating rule
+This register is the canonical source rule set for the Sunshine Coast residential subdivision MVP.
+
+Official source order:
+1. **Development.i**
+2. **Planning scheme / local plan mapping**
+3. **Overlay mapping**
+4. **Application history**
+
+Do not rely on:
+- listing data for planning truth
+- generic Google search as a primary source
+- one-source verification
+- `no evidence found` being treated as `no constraint`
+
+---
+
 ## Operator rule
 For each site, use sources in the order listed here.
 
