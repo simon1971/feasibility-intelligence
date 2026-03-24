@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2, Mail, SearchCheck, ShieldAlert, Sparkles } from 'lucide-react';
 import { HeroEngine } from '@/components/hero-engine';
+import { OutcomeCards } from '@/components/outcome-cards';
 import { Card } from '@/components/ui/card';
 
 const problemPoints = [
@@ -164,24 +165,7 @@ export default function Home() {
         </section>
 
         <section className="py-12" id="outputs">
-          <div className="grid gap-5 lg:grid-cols-3">
-            {outcomes.map((outcome) => (
-              <Card key={outcome.label} className="p-7">
-                <p
-                  className={`inline-flex rounded-full px-3 py-1 text-xs uppercase tracking-[0.22em] ${
-                    outcome.tone === 'danger'
-                      ? 'bg-danger/10 text-danger'
-                      : outcome.tone === 'warning'
-                        ? 'bg-warning/10 text-warning'
-                        : 'bg-success/10 text-success'
-                  }`}
-                >
-                  {outcome.label}
-                </p>
-                <p className="mt-5 text-lg leading-8 text-muted">{outcome.reason}</p>
-              </Card>
-            ))}
-          </div>
+          <OutcomeCards outcomes={outcomes} />
         </section>
 
         <section className="py-12" id="cta">
