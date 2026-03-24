@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0A0D11"/>
+  <circle cx="274" cy="88" r="220" fill="#7BA4FF" fill-opacity="0.18"/>
+  <circle cx="1018" cy="126" r="148" fill="#CBB89D" fill-opacity="0.12"/>
+  <rect x="52" y="52" width="1096" height="526" rx="32" fill="#0F141B" stroke="rgba(255,255,255,0.1)"/>
+  <text x="96" y="142" fill="#7BA4FF" font-family="Inter, Arial, sans-serif" font-size="24" letter-spacing="6">FEASIBILITY INTELLIGENCE</text>
+  <text x="96" y="228" fill="#F3F4F6" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="600">Filter non-starters early.</text>
+  <text x="96" y="294" fill="#F3F4F6" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="600">Explain why. Escalate the right work.</text>
+  <text x="96" y="364" fill="#A6B0BF" font-family="Inter, Arial, sans-serif" font-size="28">Inputs → processing layers → outputs for faster first-pass feasibility decisions.</text>
+  <rect x="96" y="434" width="246" height="88" rx="24" fill="#0A0D11" stroke="rgba(123,164,255,0.3)"/>
+  <text x="126" y="471" fill="#F3F4F6" font-family="Inter, Arial, sans-serif" font-size="24">Inputs</text>
+  <text x="126" y="505" fill="#A6B0BF" font-family="Inter, Arial, sans-serif" font-size="18">Zoning · Site metrics · Constraints · Market</text>
+  <rect x="444" y="418" width="308" height="104" rx="26" fill="#0A0D11" stroke="rgba(123,164,255,0.3)"/>
+  <text x="476" y="459" fill="#F3F4F6" font-family="Inter, Arial, sans-serif" font-size="24">Processing layers</text>
+  <text x="476" y="493" fill="#A6B0BF" font-family="Inter, Arial, sans-serif" font-size="18">Normalise · Check constraints · Classify</text>
+  <rect x="856" y="434" width="238" height="88" rx="24" fill="#0A0D11" stroke="rgba(123,164,255,0.3)"/>
+  <text x="886" y="471" fill="#F3F4F6" font-family="Inter, Arial, sans-serif" font-size="24">Outputs</text>
+  <text x="886" y="505" fill="#A6B0BF" font-family="Inter, Arial, sans-serif" font-size="18">Stop · Review · Proceed</text>
+  <path d="M342 478H444" stroke="#7BA4FF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round"/>
+  <path d="M752 478H856" stroke="#7BA4FF" stroke-opacity="0.7" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="392" cy="478" r="8" fill="#7BA4FF"/>
+  <circle cx="804" cy="478" r="8" fill="#7BA4FF"/>
+</svg>

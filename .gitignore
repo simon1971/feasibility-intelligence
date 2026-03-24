@@ -1,4 +1,7 @@
+node_modules
+.next
+out
+tsconfig.tsbuildinfo
+.runtime
 .DS_Store
-*.log
-node_modules/
-.env
+.workspace/local-*
