@@ -52,8 +52,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-hero-radial">
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-6 sm:px-8 lg:px-12">
-        <header className="sticky top-0 z-30 mb-8 border-b border-white/5 bg-background/70 py-5 backdrop-blur">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-1">
+        <header className="sticky top-4 z-30 mb-8">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-[24px] border border-white/8 bg-background/70 px-5 py-5 shadow-[0_18px_48px_rgba(3,8,20,0.22)] backdrop-blur">
             <div>
               <p className="text-xs uppercase tracking-[0.32em] text-primary/80">Feasibility Intelligence</p>
               <p className="mt-2 text-sm text-muted">Filter non-starters. Explain why. Escalate the right opportunities.</p>
