@@ -13,7 +13,7 @@ const text = '#F3F4F6';
 const muted = '#A6B0BF';
 const primary = '#7BA4FF';
 const accent = '#CBB89D';
-const line = 'rgba(255,255,255,0.10)';
+const line = 'rgba(255,255,255,0.08)';
 const success = '#8BD0AA';
 const warning = '#E7C07D';
 const danger = '#F08B8B';
@@ -21,53 +21,70 @@ const danger = '#F08B8B';
 ctx.fillStyle = bg;
 ctx.fillRect(0, 0, width, height);
 
-const glow1 = ctx.createRadialGradient(220, 90, 0, 220, 90, 240);
-glow1.addColorStop(0, 'rgba(123,164,255,0.24)');
+const glow1 = ctx.createRadialGradient(210, 80, 0, 210, 80, 260);
+glow1.addColorStop(0, 'rgba(123,164,255,0.26)');
 glow1.addColorStop(1, 'rgba(123,164,255,0)');
 ctx.fillStyle = glow1;
 ctx.fillRect(0, 0, width, height);
 
-const glow2 = ctx.createRadialGradient(980, 100, 0, 980, 100, 180);
-glow2.addColorStop(0, 'rgba(203,184,157,0.18)');
+const glow2 = ctx.createRadialGradient(980, 120, 0, 980, 120, 220);
+glow2.addColorStop(0, 'rgba(203,184,157,0.16)');
 glow2.addColorStop(1, 'rgba(203,184,157,0)');
 ctx.fillStyle = glow2;
 ctx.fillRect(0, 0, width, height);
 
-roundRect(ctx, 44, 44, 1112, 542, 32, panel, line);
+roundRect(ctx, 42, 42, 1116, 546, 34, panel, line);
 
 ctx.fillStyle = primary;
 ctx.font = '500 22px "DejaVu Sans"';
-ctx.fillText('FEASIBILITY INTELLIGENCE', 86, 112);
+ctx.fillText('FEASIBILITY INTELLIGENCE', 88, 110);
 
 ctx.fillStyle = text;
-ctx.font = '600 58px "DejaVu Sans"';
-ctx.fillText('Filter non-starters early.', 86, 192);
-ctx.fillText('Explain why. Escalate the right work.', 86, 256);
+ctx.font = '600 68px "DejaVu Sans"';
+ctx.fillText('Subdivision screening,', 88, 206);
+ctx.fillText('without the guesswork.', 88, 282);
 
 ctx.fillStyle = muted;
-ctx.font = '28px "DejaVu Sans"';
-ctx.fillText('A first-pass feasibility engine for faster decisions and cleaner expert allocation.', 86, 320);
+ctx.font = '27px "DejaVu Sans"';
+ctx.fillText('Get a fast first-pass result with constraints, yield, confidence, and the next step.', 88, 352);
 
-const colY = 382;
-const colH = 150;
-const leftX = 86;
-const midX = 430;
-const rightX = 826;
+roundRect(ctx, 88, 424, 262, 86, 24, '#0B1016', 'rgba(255,255,255,0.07)');
+ctx.fillStyle = text;
+ctx.font = '600 24px "DejaVu Sans"';
+ctx.fillText('PASS / FAIL / REVIEW', 114, 472);
+ctx.fillStyle = muted;
+ctx.font = '18px "DejaVu Sans"';
+ctx.fillText('Clear classification for fast screening.', 114, 500);
 
-card(ctx, leftX, colY, 252, colH, 'Inputs', 'Zoning · Site metrics · Constraints · Market', primary);
-card(ctx, midX, colY - 16, 308, 182, 'Processing layers', 'Normalise · Check constraints · Classify', primary);
-card(ctx, rightX, colY, 282, colH, 'Outputs', 'Not feasible · Needs review · High potential', accent);
+roundRect(ctx, 386, 424, 234, 86, 24, '#0B1016', 'rgba(255,255,255,0.07)');
+ctx.fillStyle = text;
+ctx.font = '600 24px "DejaVu Sans"';
+ctx.fillText('Estimated yield', 412, 472);
+ctx.fillStyle = muted;
+ctx.font = '18px "DejaVu Sans"';
+ctx.fillText('Deterministic lot heuristic.', 412, 500);
 
-connector(ctx, leftX + 252, colY + 74, midX);
-connector(ctx, midX + 308, colY + 58, rightX);
+roundRect(ctx, 656, 424, 204, 86, 24, '#0B1016', 'rgba(255,255,255,0.07)');
+ctx.fillStyle = text;
+ctx.font = '600 24px "DejaVu Sans"';
+ctx.fillText('Confidence', 682, 472);
+ctx.fillStyle = muted;
+ctx.font = '18px "DejaVu Sans"';
+ctx.fillText('0–100% confidence score.', 682, 500);
 
-for (const [i, label] of ['Signal ingest', 'Rule pass', 'Decision layer'].entries()) {
-  layerNode(ctx, midX + 34, colY + 20 + i * 48, label, i + 1);
-}
+roundRect(ctx, 904, 140, 190, 286, 28, '#0B1016', 'rgba(255,255,255,0.07)');
+ctx.fillStyle = text;
+ctx.font = '600 22px "DejaVu Sans"';
+ctx.fillText('Outputs', 938, 186);
 
-outputPill(ctx, rightX + 26, colY + 28, 'Not feasible', danger);
-outputPill(ctx, rightX + 26, colY + 68, 'Needs review', warning);
-outputPill(ctx, rightX + 26, colY + 108, 'High potential', success);
+pill(ctx, 930, 220, 138, 38, 'PASS', success);
+pill(ctx, 930, 276, 138, 38, 'REVIEW', warning);
+pill(ctx, 930, 332, 138, 38, 'FAIL', danger);
+
+ctx.fillStyle = accent;
+ctx.font = '500 17px "DejaVu Sans"';
+ctx.fillText('Professional first-pass', 930, 400);
+ctx.fillText('subdivision screening.', 930, 425);
 
 const outPath = path.join(process.cwd(), 'public/og/feasibility-intelligence-preview.png');
 fs.writeFileSync(outPath, canvas.toBuffer('image/png'));
@@ -88,63 +105,13 @@ function roundRect(ctx, x, y, w, h, r, fill, stroke) {
   ctx.stroke();
 }
 
-function card(ctx, x, y, w, h, title, body, accentColor) {
-  roundRect(ctx, x, y, w, h, 24, '#0B1016', 'rgba(255,255,255,0.08)');
-  ctx.fillStyle = accentColor;
-  ctx.font = '500 18px "DejaVu Sans"';
-  ctx.fillText(title, x + 22, y + 36);
-  ctx.fillStyle = muted;
-  ctx.font = '20px "DejaVu Sans"';
-  wrapText(ctx, body, x + 22, y + 76, w - 44, 28);
-}
-
-function connector(ctx, x1, y, x2) {
-  ctx.strokeStyle = 'rgba(123,164,255,0.65)';
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.moveTo(x1 + 12, y);
-  ctx.lineTo(x2 - 16, y);
-  ctx.stroke();
-  ctx.fillStyle = primary;
-  ctx.beginPath();
-  ctx.arc((x1 + x2) / 2, y, 7, 0, Math.PI * 2);
-  ctx.fill();
-}
-
-function layerNode(ctx, x, y, label, idx) {
-  roundRect(ctx, x, y, 236, 34, 17, 'rgba(123,164,255,0.08)', 'rgba(123,164,255,0.22)');
-  ctx.fillStyle = primary;
-  ctx.font = '600 15px "DejaVu Sans"';
-  ctx.fillText(`0${idx}`, x + 14, y + 22);
-  ctx.fillStyle = text;
-  ctx.font = '500 15px "DejaVu Sans"';
-  ctx.fillText(label, x + 52, y + 22);
-}
-
-function outputPill(ctx, x, y, label, color) {
-  roundRect(ctx, x, y, 208, 28, 14, 'rgba(255,255,255,0.04)', 'rgba(255,255,255,0.06)');
+function pill(ctx, x, y, w, h, label, color) {
+  roundRect(ctx, x, y, w, h, h / 2, 'rgba(255,255,255,0.04)', 'rgba(255,255,255,0.06)');
   ctx.fillStyle = color;
   ctx.beginPath();
-  ctx.arc(x + 14, y + 14, 5, 0, Math.PI * 2);
+  ctx.arc(x + 18, y + h / 2, 6, 0, Math.PI * 2);
   ctx.fill();
   ctx.fillStyle = text;
-  ctx.font = '500 14px "DejaVu Sans"';
-  ctx.fillText(label, x + 28, y + 19);
-}
-
-function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-  const words = text.split(' ');
-  let line = '';
-  for (let n = 0; n < words.length; n++) {
-    const testLine = line + words[n] + ' ';
-    const metrics = ctx.measureText(testLine);
-    if (metrics.width > maxWidth && n > 0) {
-      ctx.fillText(line.trim(), x, y);
-      line = words[n] + ' ';
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
-  }
-  ctx.fillText(line.trim(), x, y);
+  ctx.font = '600 16px "DejaVu Sans"';
+  ctx.fillText(label, x + 34, y + 24);
 }

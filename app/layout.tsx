@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const title = 'Feasibility Intelligence';
-const description = 'Filter non-starters early, explain why, and surface the opportunities worth expert time.';
+const description = 'Fast first-pass subdivision screening with clear constraints, yield, confidence, and next-step recommendations.';
 const siteUrl = 'https://feasibility-intelligence.thedeploylab.au';
 const imageUrl = `${siteUrl}/og/feasibility-intelligence-preview.png`;
 
