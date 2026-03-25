@@ -1,6 +1,6 @@
 'use client';
 
-import { useId } from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 
 type OutputTone = 'danger' | 'warning' | 'success';
@@ -15,49 +15,51 @@ export function OutcomeCards({ outcomes }: { outcomes: readonly Outcome[] }) {
   return (
     <div className="grid gap-5 lg:grid-cols-3">
       {outcomes.map((outcome, index) => (
-        <OrbitCard key={outcome.label} outcome={outcome} index={index} />
+        <GlowCard key={outcome.label} outcome={outcome} index={index} />
       ))}
     </div>
   );
 }
 
-function OrbitCard({ outcome, index }: { outcome: Outcome; index: number }) {
+function GlowCard({ outcome, index }: { outcome: Outcome; index: number }) {
   const theme = toneTheme(outcome.tone);
-  const pathId = useId().replace(/:/g, '');
-  const begin = `${index * 0.6}s`;
 
   return (
     <Card className="group relative overflow-hidden p-7">
-      <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_48%)] opacity-35" />
+      <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))]" />
 
-      <svg
+      <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-[10px] h-[calc(100%-20px)] w-[calc(100%-20px)]"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <path id={pathId} d="M18,4 H82 A14,14 0 0 1 96,18 V82 A14,14 0 0 1 82,96 H18 A14,14 0 0 1 4,82 V18 A14,14 0 0 1 18,4 Z" />
-          <filter id={`${pathId}-blur`} x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="1.3" />
-          </filter>
-        </defs>
+        className={`pointer-events-none absolute -right-10 top-[-18%] h-40 w-40 rounded-full blur-3xl ${theme.glow}`}
+        animate={{
+          x: [0, -8, 0],
+          y: [0, 10, 0],
+          opacity: [0.2, 0.32, 0.2],
+          scale: [1, 1.04, 1],
+        }}
+        transition={{
+          duration: 6.8,
+          delay: index * 0.45,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
 
-        <rect x="4" y="4" width="92" height="92" rx="14" fill="none" className="stroke-white/8" strokeWidth="1.05" />
-        <rect x="4" y="4" width="92" height="92" rx="14" fill="none" className={theme.edgeTint} strokeWidth="1.05" />
+      <motion.div
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px ${theme.edge}`}
+        animate={{ opacity: [0.18, 0.34, 0.18] }}
+        transition={{
+          duration: 5.8,
+          delay: index * 0.35,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        }}
+      />
 
-        <circle r="2.5" className={theme.glowFill} filter={`url(#${pathId}-blur)`} opacity="0.36">
-          <animateMotion dur="7.2s" begin={begin} repeatCount="indefinite" rotate="auto" calcMode="linear">
-            <mpath href={`#${pathId}`} />
-          </animateMotion>
-        </circle>
-
-        <circle r="1.2" className={theme.dotFill}>
-          <animateMotion dur="7.2s" begin={begin} repeatCount="indefinite" rotate="auto" calcMode="linear">
-            <mpath href={`#${pathId}`} />
-          </animateMotion>
-        </circle>
-      </svg>
+      <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/[0.05]" />
 
       <div className="relative">
         <p className={`inline-flex rounded-full px-3 py-1 text-xs uppercase tracking-[0.22em] ${theme.pill}`}>
@@ -74,23 +76,20 @@ function toneTheme(tone: OutputTone) {
     case 'danger':
       return {
         pill: 'bg-danger/10 text-danger',
-        dotFill: 'fill-danger',
-        glowFill: 'fill-danger',
-        edgeTint: 'stroke-danger/14',
+        glow: 'bg-[rgba(240,139,139,0.18)]',
+        edge: 'bg-gradient-to-r from-transparent via-danger/40 to-transparent',
       };
     case 'warning':
       return {
         pill: 'bg-warning/10 text-warning',
-        dotFill: 'fill-warning',
-        glowFill: 'fill-warning',
-        edgeTint: 'stroke-warning/14',
+        glow: 'bg-[rgba(231,192,125,0.18)]',
+        edge: 'bg-gradient-to-r from-transparent via-warning/40 to-transparent',
       };
     case 'success':
       return {
         pill: 'bg-success/10 text-success',
-        dotFill: 'fill-success',
-        glowFill: 'fill-success',
-        edgeTint: 'stroke-success/14',
+        glow: 'bg-[rgba(139,208,170,0.18)]',
+        edge: 'bg-gradient-to-r from-transparent via-success/40 to-transparent',
       };
   }
 }
