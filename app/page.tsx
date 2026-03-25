@@ -168,7 +168,7 @@ export default function Home() {
           <OutcomeCards outcomes={outcomes} />
         </section>
 
-        <section className="py-12" id="cta">
+        <section className="scroll-mt-32 py-12" id="cta">
           <Card className="overflow-hidden p-8 sm:p-10">
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div>
@@ -180,7 +180,7 @@ export default function Home() {
                   Early conversations are focused on fit, input quality, and decision thresholds. No hype. No black box claims.
                 </p>
               </div>
-              <form className="rounded-[28px] border border-white/10 bg-white/[0.03] p-5">
+              <form className="relative rounded-[28px] border border-white/10 bg-white/[0.03] p-5" action="#cta">
                 <label className="block text-sm text-muted" htmlFor="email">
                   Work email
                 </label>
