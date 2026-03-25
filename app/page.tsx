@@ -180,7 +180,16 @@ export default function Home() {
                   Early conversations are focused on fit, input quality, and decision thresholds. No hype. No black box claims.
                 </p>
               </div>
-              <form className="relative rounded-[28px] border border-white/10 bg-white/[0.03] p-5" action="#cta">
+              <form
+                className="relative rounded-[28px] border border-white/10 bg-white/[0.03] p-5"
+                action="https://formsubmit.co/agentdonna35@gmail.com"
+                method="POST"
+              >
+                <input type="hidden" name="_subject" value="Feasibility Intelligence — Request preview lead" />
+                <input type="hidden" name="_next" value="https://feasibility-intelligence.thedeploylab.au/request-preview-success" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
                 <label className="block text-sm text-muted" htmlFor="email">
                   Work email
                 </label>
@@ -188,19 +197,23 @@ export default function Home() {
                   <Mail className="h-4 w-4 text-primary" />
                   <input
                     id="email"
+                    name="email"
                     type="email"
+                    required
+                    inputMode="email"
+                    autoComplete="email"
                     placeholder="name@company.com"
                     className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted"
                   />
                 </div>
                 <button
-                  type="button"
+                  type="submit"
                   className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-slate-950 transition hover:bg-[#9AB8FF]"
                 >
                   Request preview
                 </button>
                 <p className="mt-3 text-xs leading-6 text-muted">
-                  Placeholder capture for the MVP. Wire to CRM or email routing in the next iteration.
+                  Requests are sent directly for review. A proper lead routing layer can replace this endpoint in the next iteration.
                 </p>
               </form>
             </div>
