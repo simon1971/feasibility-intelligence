@@ -182,13 +182,9 @@ export default function Home() {
               </div>
               <form
                 className="relative rounded-[28px] border border-white/10 bg-white/[0.03] p-5"
-                action="https://formsubmit.co/agentdonna35@gmail.com"
+                action="/request-preview-submit"
                 method="POST"
               >
-                <input type="hidden" name="_subject" value="Feasibility Intelligence — Request preview lead" />
-                <input type="hidden" name="_next" value="https://feasibility-intelligence.thedeploylab.au/request-preview-success" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
                 <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
                 <label className="block text-sm text-muted" htmlFor="email">
                   Work email
