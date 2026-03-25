@@ -1,22 +1,23 @@
 #!/usr/bin/env python3
 import json
 import os
-import subprocess
 import sys
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs
+from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
+HOST = os.environ.get('LEAD_CAPTURE_HOST', '127.0.0.1')
 PORT = int(os.environ.get('LEAD_CAPTURE_PORT', '8091'))
 SHEET_ID = os.environ['LEAD_CAPTURE_SHEET_ID']
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 SERVICE_ACCOUNT_FILE = os.environ['GOOGLE_APPLICATION_CREDENTIALS']
-DISCORD_TARGET = os.environ.get('LEAD_CAPTURE_DISCORD_TARGET', '').strip()
-DISCORD_CHANNEL = os.environ.get('LEAD_CAPTURE_DISCORD_CHANNEL', 'discord').strip()
+DISCORD_CHANNEL_ID = os.environ.get('LEAD_CAPTURE_DISCORD_CHANNEL_ID', '').strip()
+DISCORD_BOT_TOKEN = os.environ.get('LEAD_CAPTURE_DISCORD_BOT_TOKEN', '').strip()
 SITE_NAME = os.environ.get('LEAD_CAPTURE_SITE_NAME', 'Feasibility Intelligence')
 BRISBANE = ZoneInfo('Australia/Brisbane')
 
@@ -47,29 +48,26 @@ def append_row(service, values):
 
 
 def notify_discord(email: str, timestamp: str):
-    if not DISCORD_TARGET:
+    if not DISCORD_CHANNEL_ID or not DISCORD_BOT_TOKEN:
         return
-    message = (
+    content = (
         f'New request preview lead for {SITE_NAME}\n'
         f'- Email: {email}\n'
         f'- Submitted: {timestamp}'
     )
-    subprocess.run(
-        [
-            'openclaw',
-            'message',
-            'send',
-            '--channel',
-            DISCORD_CHANNEL,
-            '--target',
-            DISCORD_TARGET,
-            '--message',
-            message,
-        ],
-        check=True,
-        capture_output=True,
-        text=True,
+    body = json.dumps({'content': content}).encode('utf-8')
+    req = Request(
+        f'https://discord.com/api/v10/channels/{DISCORD_CHANNEL_ID}/messages',
+        data=body,
+        headers={
+            'Authorization': f'Bot {DISCORD_BOT_TOKEN}',
+            'Content-Type': 'application/json',
+        },
+        method='POST',
     )
+    with urlopen(req, timeout=10) as resp:
+        if resp.status not in (200, 201):
+            raise RuntimeError(f'discord status {resp.status}')
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -133,7 +131,7 @@ class Handler(BaseHTTPRequestHandler):
             self.wfile.write(encoded)
             return
 
-        if payload.get('status') == 'success' or payload.get('status') == 'duplicate':
+        if payload.get('status') in ('success', 'duplicate'):
             self.send_response(303)
             self.send_header('Location', 'https://feasibility-intelligence.thedeploylab.au/request-preview-success')
             self.end_headers()
@@ -146,6 +144,6 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    server = HTTPServer(('127.0.0.1', PORT), Handler)
-    print(f'lead_capture_server listening on 127.0.0.1:{PORT}', flush=True)
+    server = HTTPServer((HOST, PORT), Handler)
+    print(f'lead_capture_server listening on {HOST}:{PORT}', flush=True)
     server.serve_forever()
