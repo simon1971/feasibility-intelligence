@@ -197,7 +197,7 @@ export default function Home() {
                   type="button"
                   className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-primary px-5 text-sm font-medium text-slate-950 transition hover:bg-[#9AB8FF]"
                 >
-                  Request access
+                  Request preview
                 </button>
                 <p className="mt-3 text-xs leading-6 text-muted">
                   Placeholder capture for the MVP. Wire to CRM or email routing in the next iteration.
