@@ -5,3 +5,6 @@ tsconfig.tsbuildinfo
 .runtime
 .DS_Store
 .workspace/local-*
+.lead-capture-venv
+.lead-capture.env
+scripts/__pycache__
