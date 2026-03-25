@@ -180,6 +180,13 @@ export default function Home() {
                 <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
                   Early conversations are focused on fit, input quality, and decision thresholds. No hype. No black box claims.
                 </p>
+                <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted">
+                  {['Direct review queue', 'Duplicate protection', 'No unnecessary fields'].map((item) => (
+                    <span key={item} className="rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
               <RequestPreviewForm />
             </div>
