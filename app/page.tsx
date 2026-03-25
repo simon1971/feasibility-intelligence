@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2, SearchCheck, ShieldAlert, Sparkles } from 'lucide-react';
 import { HeroEngine } from '@/components/hero-engine';
 import { OutcomeCards } from '@/components/outcome-cards';
-import { RequestPreviewForm } from '@/components/request-preview-form';
+import { ScreeningTool } from '@/components/screening-tool';
 import { Card } from '@/components/ui/card';
 
 const problemPoints = [
@@ -60,10 +60,10 @@ export default function Home() {
               <p className="mt-2 text-sm text-muted">Filter non-starters. Explain why. Escalate the right opportunities.</p>
             </div>
             <a
-              href="#cta"
+              href="#screening-tool"
               className="inline-flex h-11 items-center rounded-full border border-white/10 bg-white/5 px-5 text-sm text-foreground transition hover:bg-white/10"
             >
-              Request preview
+              Run screen
             </a>
           </div>
         </header>
@@ -82,10 +82,10 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#cta"
+                href="#screening-tool"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 text-[15px] font-medium text-slate-950 transition hover:bg-[#9AB8FF]"
               >
-                Book early access
+                Run feasibility screen
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a
@@ -169,29 +169,7 @@ export default function Home() {
           <OutcomeCards outcomes={outcomes} />
         </section>
 
-        <section className="scroll-mt-32 py-12" id="cta">
-          <Card className="overflow-hidden p-8 sm:p-10">
-            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-              <div>
-                <p className="text-sm uppercase tracking-[0.28em] text-primary/80">Call to action</p>
-                <h2 className="mt-5 text-3xl font-medium tracking-[-0.03em] text-slate-50 sm:text-4xl">
-                  Request the preview and shape the first screening workflow.
-                </h2>
-                <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
-                  Early conversations are focused on fit, input quality, and decision thresholds. No hype. No black box claims.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted">
-                  {['Direct review queue', 'Duplicate protection', 'No unnecessary fields'].map((item) => (
-                    <span key={item} className="rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <RequestPreviewForm />
-            </div>
-          </Card>
-        </section>
+        <ScreeningTool />
       </div>
     </main>
   );
