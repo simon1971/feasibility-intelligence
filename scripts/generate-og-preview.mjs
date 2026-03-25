@@ -14,77 +14,72 @@ const muted = '#A6B0BF';
 const primary = '#7BA4FF';
 const accent = '#CBB89D';
 const line = 'rgba(255,255,255,0.08)';
-const success = '#8BD0AA';
-const warning = '#E7C07D';
-const danger = '#F08B8B';
 
 ctx.fillStyle = bg;
 ctx.fillRect(0, 0, width, height);
 
-const glow1 = ctx.createRadialGradient(210, 80, 0, 210, 80, 260);
-glow1.addColorStop(0, 'rgba(123,164,255,0.26)');
+const glow1 = ctx.createRadialGradient(240, 96, 0, 240, 96, 280);
+glow1.addColorStop(0, 'rgba(123,164,255,0.18)');
 glow1.addColorStop(1, 'rgba(123,164,255,0)');
 ctx.fillStyle = glow1;
 ctx.fillRect(0, 0, width, height);
 
-const glow2 = ctx.createRadialGradient(980, 120, 0, 980, 120, 220);
-glow2.addColorStop(0, 'rgba(203,184,157,0.16)');
+const glow2 = ctx.createRadialGradient(940, 96, 0, 940, 96, 220);
+glow2.addColorStop(0, 'rgba(203,184,157,0.10)');
 glow2.addColorStop(1, 'rgba(203,184,157,0)');
 ctx.fillStyle = glow2;
 ctx.fillRect(0, 0, width, height);
 
-roundRect(ctx, 42, 42, 1116, 546, 34, panel, line);
+roundRect(ctx, 44, 44, 1112, 542, 34, panel, line);
 
 ctx.fillStyle = primary;
 ctx.font = '500 22px "DejaVu Sans"';
-ctx.fillText('FEASIBILITY INTELLIGENCE', 88, 110);
+ctx.fillText('FEASIBILITY INTELLIGENCE', 94, 112);
 
 ctx.fillStyle = text;
-ctx.font = '600 68px "DejaVu Sans"';
-ctx.fillText('Subdivision screening,', 88, 206);
-ctx.fillText('without the guesswork.', 88, 282);
+ctx.font = '600 72px "DejaVu Sans"';
+ctx.fillText('Screen subdivision', 94, 222);
+ctx.fillText('opportunities earlier.', 94, 302);
 
 ctx.fillStyle = muted;
-ctx.font = '27px "DejaVu Sans"';
-ctx.fillText('Get a fast first-pass result with constraints, yield, confidence, and the next step.', 88, 352);
+ctx.font = '28px "DejaVu Sans"';
+ctx.fillText('First-pass feasibility with clear constraints, yield, confidence, and next steps.', 94, 372);
 
-roundRect(ctx, 88, 424, 262, 86, 24, '#0B1016', 'rgba(255,255,255,0.07)');
+roundRect(ctx, 94, 452, 310, 72, 22, '#0B1016', 'rgba(255,255,255,0.06)');
+ctx.fillStyle = primary;
+ctx.font = '600 18px "DejaVu Sans"';
+ctx.fillText('PASS / FAIL / REVIEW', 122, 496);
+
+roundRect(ctx, 430, 452, 230, 72, 22, '#0B1016', 'rgba(255,255,255,0.06)');
 ctx.fillStyle = text;
-ctx.font = '600 24px "DejaVu Sans"';
-ctx.fillText('PASS / FAIL / REVIEW', 114, 472);
-ctx.fillStyle = muted;
-ctx.font = '18px "DejaVu Sans"';
-ctx.fillText('Clear classification for fast screening.', 114, 500);
+ctx.font = '600 18px "DejaVu Sans"';
+ctx.fillText('Estimated yield', 458, 496);
 
-roundRect(ctx, 386, 424, 234, 86, 24, '#0B1016', 'rgba(255,255,255,0.07)');
+roundRect(ctx, 686, 452, 204, 72, 22, '#0B1016', 'rgba(255,255,255,0.06)');
 ctx.fillStyle = text;
-ctx.font = '600 24px "DejaVu Sans"';
-ctx.fillText('Estimated yield', 412, 472);
-ctx.fillStyle = muted;
-ctx.font = '18px "DejaVu Sans"';
-ctx.fillText('Deterministic lot heuristic.', 412, 500);
+ctx.font = '600 18px "DejaVu Sans"';
+ctx.fillText('Confidence', 714, 496);
 
-roundRect(ctx, 656, 424, 204, 86, 24, '#0B1016', 'rgba(255,255,255,0.07)');
-ctx.fillStyle = text;
-ctx.font = '600 24px "DejaVu Sans"';
-ctx.fillText('Confidence', 682, 472);
-ctx.fillStyle = muted;
-ctx.font = '18px "DejaVu Sans"';
-ctx.fillText('0–100% confidence score.', 682, 500);
+ctx.strokeStyle = 'rgba(123,164,255,0.30)';
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(932, 170);
+ctx.lineTo(1092, 170);
+ctx.stroke();
 
-roundRect(ctx, 904, 140, 190, 286, 28, '#0B1016', 'rgba(255,255,255,0.07)');
-ctx.fillStyle = text;
-ctx.font = '600 22px "DejaVu Sans"';
-ctx.fillText('Outputs', 938, 186);
-
-pill(ctx, 930, 220, 138, 38, 'PASS', success);
-pill(ctx, 930, 276, 138, 38, 'REVIEW', warning);
-pill(ctx, 930, 332, 138, 38, 'FAIL', danger);
+ctx.strokeStyle = 'rgba(123,164,255,0.18)';
+ctx.beginPath();
+ctx.moveTo(932, 218);
+ctx.lineTo(1092, 218);
+ctx.stroke();
+ctx.beginPath();
+ctx.moveTo(932, 266);
+ctx.lineTo(1092, 266);
+ctx.stroke();
 
 ctx.fillStyle = accent;
-ctx.font = '500 17px "DejaVu Sans"';
-ctx.fillText('Professional first-pass', 930, 400);
-ctx.fillText('subdivision screening.', 930, 425);
+ctx.font = '500 18px "DejaVu Sans"';
+ctx.fillText('Decision-grade first-pass screening.', 932, 340);
 
 const outPath = path.join(process.cwd(), 'public/og/feasibility-intelligence-preview.png');
 fs.writeFileSync(outPath, canvas.toBuffer('image/png'));
@@ -103,15 +98,4 @@ function roundRect(ctx, x, y, w, h, r, fill, stroke) {
   ctx.strokeStyle = stroke;
   ctx.lineWidth = 1;
   ctx.stroke();
-}
-
-function pill(ctx, x, y, w, h, label, color) {
-  roundRect(ctx, x, y, w, h, h / 2, 'rgba(255,255,255,0.04)', 'rgba(255,255,255,0.06)');
-  ctx.fillStyle = color;
-  ctx.beginPath();
-  ctx.arc(x + 18, y + h / 2, 6, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = text;
-  ctx.font = '600 16px "DejaVu Sans"';
-  ctx.fillText(label, x + 34, y + 24);
 }
